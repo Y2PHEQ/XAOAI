@@ -1,4 +1,4 @@
-name: "🚀 release"
+name: "✨ release"
 
 on:
     push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
     release:
-        name: 🚀 release
+        name: ✨ release
         runs-on: ubuntu-latest
         steps:
             - name: 📚 checkout
@@ -19,6 +19,5 @@ jobs:
                   registry-url: https://registry.npmjs.org
             - name: 🚀 publish
               run: npm publish --access public
-              working-directory: xaoai
               env:
                   NODE_AUTH_TOKEN: ${{secrets.XAOAI}}
