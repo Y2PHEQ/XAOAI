@@ -4,10 +4,17 @@
 it more advantageous to the user. This is still under development so expect some
 blunders while using this.
 
-## INSTALLING PACKAGE
+### INSTALLING PACKAGE
+» in shell/terminal
 
 ```bash
-npm i @y2pheq/xaoai
+npm install @y2pheq/xaoai
+```
+» in package.json
+```json
+"dependencies": {
+		"@y2pheq/xaoai": "^x.x.x"
+	}
 ```
 
 ### IMPORT/CONST THE PACKAGE FROM YOUR PROJECT
