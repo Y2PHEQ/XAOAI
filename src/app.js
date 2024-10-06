@@ -20,7 +20,7 @@ var x, dataURL, get, xaoai, title, artist, lyrics, output;
         );
         return data.result;
       } catch (error) {
-        return error.message;
+        return 'Error: API Key reached the limit.'
       }
     }
     async lyrics(query) {
