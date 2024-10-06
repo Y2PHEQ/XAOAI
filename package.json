@@ -1,6 +1,6 @@
 {
 	"name": "@y2pheq/xaoai",
-	"version": "0.0.1-beta",
+	"version": "0.0.3",
 	"description": "Integrated from the known Artificial intelligence with special tweaks to make it more advantageous to the user. This is still under development so expect some blunders while using this.",
 	"main": "index.js",
 	"scripts": {
