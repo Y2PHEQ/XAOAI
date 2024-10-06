@@ -1,6 +1,6 @@
 {
 	"name": "@y2pheq/xaoai",
-	"version": "0.1.0",
+	"version": "0.0.2",
 	"description": "Integrated from the known Artificial intelligence with special tweaks to make it more advantageous to the user. This is still under development so expect some blunders while using this.",
 	"main": "index.js",
 	"scripts": {
@@ -18,7 +18,6 @@
 	"license": "MIT",
 	"dependencies": {
 		"@types/node": "^x.x.x",
-		"@y2pheq/xaoai": "^0.0.7-BETA",
 		"axios": "^x.x.x",
 		"fs": "^0.0.1-security"
 	}
