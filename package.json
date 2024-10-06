@@ -1,11 +1,15 @@
 {
 	"name": "@y2pheq/xaoai",
-	"version": "0.0.2-BETA",
+	"version": "0.0.3-BETA",
 	"description": "Integrated from the known Artificial intelligence with special tweaks to make it more advantageous to the user. This is still under development so expect some blunders while using this.",
 	"main": "index.js",
 	"scripts": {
 		"start": "npm i && node index.js"
 	},
+	"repository": {
+    "type": "git",
+    "url": "https://github.com/Y2PHEQ/XAOAI.git"
+  },
 	"files": [
 		"index.js"
 	],
