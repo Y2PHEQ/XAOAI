@@ -1,4 +1,4 @@
-name: "release"
+name: "🚀 release"
 
 on: push
 
@@ -6,9 +6,9 @@ jobs:
     publish:
         runs-on: ubuntu-latest
         steps:
-            - name: checkout
+            - name: 🤙 checkout
               uses: actions/checkout@v4
-            - name: node
+            - name: 🦖 node
               uses: actions/setup-node@v4
               with:
                   node-version: 20
