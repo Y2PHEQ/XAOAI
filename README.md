@@ -6,7 +6,9 @@ blunders while using this.
 
 ## INSTALLING PACKAGE
 
-[CLICK THIS](https://github.com/users/Y2PHEQ/packages/npm/package/xaoai)
+```bash
+npm i @y2pheq/xaoai
+```
 
 ## IMPORT/CONST THE PACKAGE FROM YOUR PROJECT
 
@@ -20,7 +22,7 @@ const xaoai = new Xaoai();
 
 ## USAGE<br>
 
-» xaoai.gominsi (AI)
+» xaoai.xviiii (AI)
 
 ```javascript
 async function x() {
