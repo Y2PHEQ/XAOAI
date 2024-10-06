@@ -1,0 +1,19 @@
+name: "🚀 release-github"
+
+on: push
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        steps:
+            - name: 🤙 checkout
+              uses: actions/checkout@v4
+            - name: 🦖 node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  registry-url: https://npm.pkg.github.com/
+            - name: publish
+              run: npm publish --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.GTHB_TOKEN}}
