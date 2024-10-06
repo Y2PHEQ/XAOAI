@@ -10,7 +10,7 @@ blunders while using this.
 npm i @y2pheq/xaoai
 ```
 
-## IMPORT/CONST THE PACKAGE FROM YOUR PROJECT
+### IMPORT/CONST THE PACKAGE FROM YOUR PROJECT
 
 ```javascript
 const Xaoai = require('xaoai'),
@@ -20,7 +20,7 @@ import Xaoai from 'xaoai';
 const xaoai = new Xaoai();
 ```
 
-## USAGE<br>
+### USAGE<br>
 
 » xaoai.xviiii (AI)
 
