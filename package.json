@@ -1,23 +1,23 @@
 {
 	"name": "@y2pheq/xaoai",
-	"version": "0.0.2-BETA",
+	"version": "0.0.1-BETA",
 	"description": "Integrated from the known Artificial intelligence with special tweaks to make it more advantageous to the user. This is still under development so expect some blunders while using this.",
 	"main": "index.js",
 	"scripts": {
 		"start": "npm i && node index.js"
 	},
 	"files": [
-        "index.js"
-    ],
+		"index.js"
+	],
 	"keywords": [
 		"xaoai",
 		"ai",
 		"fbbot"
 	],
 	"author": {
-        "name": "KALIX AO",
-        "url": "https://y2pheq.me"
-    },
+		"name": "KALIX AO",
+		"url": "https://y2pheq.me"
+	},
 	"license": "MIT",
 	"dependencies": {
 		"@types/node": "^x.x.x",
