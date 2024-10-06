@@ -6,9 +6,7 @@ blunders while using this.
 
 ## INSTALLING PACKAGE
 
-```bash
-npm i xaoai
-```
+[CLICK THIS](https://github.com/users/Y2PHEQ/packages/npm/package/xaoai)
 
 ## IMPORT/CONST THE PACKAGE FROM YOUR PROJECT
 
