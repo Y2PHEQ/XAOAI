@@ -43,5 +43,5 @@ var x, dataURL, get, xaoai, title, artist, lyrics, output;
   xaoai = xaoaiData;
   (x = require('axios')),
   (dataURL = 'https://x.y2pheq.me');
-  module.exports = xaoaiData;
+  module.exports = xaoai;
 })();
