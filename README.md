@@ -12,9 +12,9 @@ npm install @y2pheq/xaoai
 ```
 » in package.json
 ```json
-"dependencies": {
-		"@y2pheq/xaoai": "^x.x.x"
-	}
+"dependencies" {
+    "@y2pheq/xaoai": "^x.x.x"
+}
 ```
 
 ### IMPORT/CONST THE PACKAGE FROM YOUR PROJECT
