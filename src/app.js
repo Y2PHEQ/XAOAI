@@ -11,8 +11,8 @@ var x, dataURL, get, xaoai, title, artist, lyrics, output;
   class xaoaiData {
     constructor() {}
     async xviii(prompt, sid) {
-      if (!prompt) {
-        throw new Error('Missing arguments: Query parameter required.');
+      if (!prompt && !sid) {
+        throw new Error('Missing arguments: Query and Sender ID parameter required.');
       }
       try {
         const data = await g(
