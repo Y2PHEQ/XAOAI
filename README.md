@@ -1,4 +1,5 @@
 ## WHAT IS XAOAI?<br>
+<h1> v0.0.6-beta [LATEST]</h1>
 
 » Integrated from the known Artificial intelligence with special tweaks to make
 it more advantageous to the user. This is still under development so expect some
