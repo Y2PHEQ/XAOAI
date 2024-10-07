@@ -30,12 +30,12 @@ const xaoai = new Xaoai();
 
 ### USAGE<br>
 
-» xaoai.xviiii (AI)
+» xaoai.xviii (AI)
 
 ```javascript
 async function x() {
 	const QUERY = 'hi';
-	const SID = 100; // OPTIONAL
+	const SID = 100; // REQUIRED
 	try {
 		const resp = await xaoai.xviii(QUERY, SID);
 		console.log(resp);
