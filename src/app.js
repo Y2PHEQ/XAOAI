@@ -1,4 +1,4 @@
-var x, dataURL, get, xaoai, title, artist, lyrics, output;
+var sid, x, dataURL, get, xaoai, title, artist, lyrics, output;
 (function () {
   async function g(url) {
     try {
