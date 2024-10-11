@@ -33,32 +33,23 @@ const xaoai = new Xaoai();
 » xaoai.xviii (AI)
 
 ```javascript
-async function x() {
-	const QUERY = 'hi';
-	const SID = 100; // REQUIRED
-	try {
-		const resp = await xaoai.xviii(QUERY, SID);
-		console.log(resp);
-	} catch (error) {
-		console.error('Error:', error);
-	}
+async function sendMessage(query, sid) {
+  try {
+    const response = await xaoai.xviii(query, sid);
+    console.log(response);
+  } catch (error) {
+    console.error("Error sending message:", error);
+  }
 }
-x();
-```
 
-» xaoai.lyrics
+async function main() {
+  const query = "hi";
+  const sid = 100; // required
 
-```javascript
-async function x() {
-	const QUERY = 'young girls';
-	try {
-		const resp = await xaoai.lyrics(QUERY);
-		console.log(resp);
-	} catch (e) {
-		console.error(e);
-	}
+  await sendMessage(query, sid);
 }
-x();
+
+main();
 ```
 
 > [!WARNING]  
