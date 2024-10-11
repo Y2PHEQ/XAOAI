@@ -74,7 +74,7 @@ async function main() {
   // Send the message and handle the response (or potential errors).
   const result = await sendMessage(query, sid);
   if (result) {
-    console.log("Processing complete."); // Add further processing of the result if necessary.
+    console.log(result); // Add further processing of the result if necessary.
   } else {
     console.log("Message sending failed.");
   }
