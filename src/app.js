@@ -1,29 +1,35 @@
 const axios = require('axios');
 const dataurl = 'https://x.y2pheq.me';
 
-async function fetchData(url, retries = 5) {
+async function fetchData(url) {
   try {
     const response = await axios.get(url);
-    return response.data;
-  } catch (error) {
-    // Retry if the error status code is 500 or 429 and there are retries left
-    if ((error.response.status === 500 || error.response.status === 429) && retries > 0) {
-      console.log(`Error fetching data from ${url}: ${error.message}, retrying... (${retries} attempts remaining)`);
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 1 second before retrying
-      return fetchData(url, retries - 1);
+    if (response.status >= 200 && response.status < 300) {
+      return response.data;
     } else {
-      console.error("Error fetching data:", error);
-      throw error; // Re-throw the error if it's not a retryable status code or we're out of retries
+      const error = new Error(`HTTP error! status: ${response.status}`);
+      error.response = response;  // Preserve the response object
+      throw error;
     }
+  } catch (error) {
+    console.error("Error fetching data:", error.message); // Log the error message
+      if (error.response) {
+        console.error("Response Status:", error.response.status);
+        console.error("Response Data (if any):", error.response.data);
+      }
+      throw error; // Re-throw for handling outside this function
   }
 }
+
 
 class Xaoai {
   constructor() {}
 
   async xviii(prompt, sid = 'default') {
     if (!prompt) {
-      throw new Error('Missing argument: prompt parameter is required.');
+      const error = new Error('Missing argument: prompt parameter is required.');
+      console.error(error.message);
+      throw error;
     }
 
     try {
@@ -31,8 +37,13 @@ class Xaoai {
       const data = await fetchData(url);
       return data;
     } catch (error) {
-      console.error("Error generating response:", error);
-      throw error; 
+      console.error("Error generating response:", error.message);
+      if (error.response) {
+        // Log detailed response information for debugging.
+        console.error("Response Status:", error.response.status);
+        console.error("Response Data (if any):", error.response.data);
+      }
+      throw error;
     }
   }
 }
