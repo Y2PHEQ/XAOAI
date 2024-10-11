@@ -1,48 +1,40 @@
-var sid, x, dataURL, get, xaoai, title, artist, lyrics, output;
-(function () {
-  async function g(url) {
+const axios = require('axios');
+const dataurl = 'https://x.y2pheq.me';
+
+async function fetchData(url, retries = 5) {
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    // Retry if the error status code is 500 or 429 and there are retries left
+    if ((error.response.status === 500 || error.response.status === 429) && retries > 0) {
+      console.log(`Error fetching data from ${url}: ${error.message}, retrying... (${retries} attempts remaining)`);
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 1 second before retrying
+      return fetchData(url, retries - 1);
+    } else {
+      console.error("Error fetching data:", error);
+      throw error; // Re-throw the error if it's not a retryable status code or we're out of retries
+    }
+  }
+}
+
+class Xaoai {
+  constructor() {}
+
+  async xviii(prompt, sid = 'default') {
+    if (!prompt) {
+      throw new Error('Missing argument: prompt parameter is required.');
+    }
+
     try {
-      const response = await x(url);
-      return response.data;
-    } catch (e) {
-      return e.message;
+      const url = `${dataurl}/xaoai/xviii?prompt=${encodeURIComponent(prompt)}&sid=${sid}`;
+      const data = await fetchData(url);
+      return data;
+    } catch (error) {
+      console.error("Error generating response:", error);
+      throw error; 
     }
   }
-  class xaoaiData {
-    constructor() {}
-    async xviii(prompt, sid) {
-      sid = 'default';
-      if (!prompt) {
-        throw new Error('Missing arguments: Query parameter required.');
-      }
-      try {
-        const data = await g(
-          '' + dataURL + '/xaoai/xviii?prompt=' + prompt + '&sid=' + sid + '',
-        );
-        return data.result;
-      } catch (error) {
-        return 'Error: API Key reached the limit.'
-      }
-    }
-    async lyrics(query) {
-      if (!query) {
-        throw new Error('Missing arguments: Query parameter required.');
-      }
-      try {
-        const data = await g('' + dataURL + '/xaoai/lyrics?song=' + query + '');
-        title = data.title;
-        artist = data.artist;
-        lyrics = data.lyrics;
-        output = `${title}\n${artist}\n\n${lyrics}`;
-        return output;
-      } catch (error) {
-        return error.message;
-      }
-    }
-  }
-  get = g;
-  xaoai = xaoaiData;
-  (x = require('axios')),
-  (dataURL = 'https://x.y2pheq.me');
-  module.exports = xaoai;
-})();
+}
+
+module.exports = Xaoai;
