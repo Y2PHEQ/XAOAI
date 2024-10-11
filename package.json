@@ -1,6 +1,6 @@
 {
 	"name": "@y2pheq/xaoai",
-	"version": "0.0.9-beta",
+	"version": "1.0.0",
 	"description": "Integrated from the known Artificial intelligence with special tweaks to make it more advantageous to the user. This is still under development so expect some blunders while using this.",
 	"main": "index.js",
 	"scripts": {
@@ -13,7 +13,7 @@
 	],
 	"author": {
 		"name": "KALIX AO",
-		"url": "https://y2pheq.me"
+		"url": "https://www.facebook.com/kalixao"
 	},
 	"license": "MIT",
 	"dependencies": {
