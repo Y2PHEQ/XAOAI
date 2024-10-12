@@ -1,51 +1,38 @@
 const axios = require('axios');
-const dataurl = 'https://x.y2pheq.me';
+const dataURL = 'https://x.y2pheq.me';
 
 async function fetchData(url) {
   try {
-    const response = await axios.get(url);
-    if (response.status >= 200 && response.status < 300) {
-      return response.data;
-    } else {
-      const error = new Error(`HTTP error! status: ${response.status}`);
-      error.response = response;  // Preserve the response object
-      throw error;
-    }
+    const response = await axios(url);
+    return response.data;
   } catch (error) {
-    console.error("Error fetching data:", error.message); // Log the error message
-      if (error.response) {
-        console.error("Response Status:", error.response.status);
-        console.error("Response Data (if any):", error.response.data);
-      }
-      throw error; // Re-throw for handling outside this function
+    return error.message;
   }
 }
 
-
-class Xaoai {
-  constructor() {}
-
+class XaoaiData {
   async xviii(prompt, sid = 'default') {
-    if (!prompt) {
-      const error = new Error('Missing argument: prompt parameter is required.');
-      console.error(error.message);
-      throw error;
-    }
-
+    if (!prompt) throw new Error('Missing prompt.');
     try {
-      const url = `${dataurl}/xaoai/xviii?prompt=${encodeURIComponent(prompt)}&sid=${sid}`;
-      const data = await fetchData(url);
-      return data;
+      const data = await fetchData(`${dataURL}/xaoai/xviii?prompt=${encodeURIComponent(prompt)}&sid=${sid}`);
+      return data.result;
     } catch (error) {
-      console.error("Error generating response:", error.message);
-      if (error.response) {
-        // Log detailed response information for debugging.
-        console.error("Response Status:", error.response.status);
-        console.error("Response Data (if any):", error.response.data);
-      }
-      throw error;
+      return 'API limit reached.';
+    }
+  }
+
+  async lyrics(query) {
+    if (!query) throw new Error('Missing query.');
+    try {
+      const data = await fetchData(`${dataURL}/xaoai/lyrics?song=${encodeURIComponent(query)}`);
+      let { title, artist, lyrics } = data;
+      return `${title}\n${artist}\n\n${lyrics}`;
+    } catch (error) {
+      return error.message;
     }
   }
 }
+
+const Xaoai = XaoaiData;
 
 module.exports = Xaoai;
