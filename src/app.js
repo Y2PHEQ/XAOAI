@@ -11,7 +11,7 @@ async function fetchData(url) {
 }
 
 class XaoaiData {
-  async xviii(prompt, sid = 'default') {
+  async xviii(prompt, username, sid = 'default') {
     if (!prompt) throw new Error('Missing prompt.');
     try {
       const data = await fetchData(`${dataURL}/xaoai/xviii?prompt=${encodeURIComponent(prompt)}&sid=${sid}`);
