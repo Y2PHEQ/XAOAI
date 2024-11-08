@@ -1,5 +1,5 @@
 const axios = require('axios');
-const dataURL = 'https://x.y2pheq.me';
+const dataURL = 'https://api.y2pheq.me';
 
 async function fetchData(url) {
   try {
@@ -14,7 +14,7 @@ class XaoaiData {
   async xviii(prompt, sid = 'default') {
     if (!prompt) throw new Error('Missing prompt.');
     try {
-      const data = await fetchData(`${dataURL}/xaoai/xviii?prompt=${encodeURIComponent(prompt)}&sid=${sid}`);
+      const data = await fetchData(`${dataURL}/xaoai?prompt=${encodeURIComponent(prompt)}&uid=${sid}`);
       return data.result;
     } catch (error) {
       return 'API limit reached.';
