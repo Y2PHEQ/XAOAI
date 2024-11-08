@@ -11,10 +11,10 @@ async function fetchData(url) {
 }
 
 class XaoaiData {
-  async xviii(prompt, sid = 'default') {
+  async xviii(prompt, uid = 'default') {
     if (!prompt) throw new Error('Missing prompt.');
     try {
-      const data = await fetchData(`${dataURL}/xaoai?prompt=${encodeURIComponent(prompt)}&uid=${sid}`);
+      const data = await fetchData(`${dataURL}/xaoai?prompt=${encodeURIComponent(prompt)}&uid=${uid}`);
       return data.result;
     } catch (error) {
       return 'API limit reached.';
