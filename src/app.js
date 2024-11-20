@@ -24,7 +24,7 @@ class XaoaiData {
   async lyrics(query) {
     if (!query) throw new Error('Missing query.');
     try {
-      const data = await fetchData(`${dataURL}/xaoai/lyrics?song=${encodeURIComponent(query)}`);
+      const data = await fetchData(`${dataURL}/lyrics?song=${encodeURIComponent(query)}`);
       let { title, artist, lyrics } = data;
       return `${title}\n${artist}\n\n${lyrics}`;
     } catch (error) {
